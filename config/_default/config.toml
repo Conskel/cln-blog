@@ -1,7 +1,7 @@
-baseURL = "https://example.com"
+baseURL = "https://blog.cln.co.nz"
 languageCode = "en"
 DefaultContentLanguage = "en"
-title = "Website of Jane Doe"
+title = "CLN Blog - Continuous Learning Nonstop"
 
 # theme as hugo module
 #theme = "github.com/lxndrblz/anatole"

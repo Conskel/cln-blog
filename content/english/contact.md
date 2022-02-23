@@ -1,7 +1,7 @@
 ---
-author: Hugo Authors
+author: King Consk
 title: Contact
-date: 2019-03-08
+date: 2022-02-24
 description: Contact Page
 contact: true
 ---
