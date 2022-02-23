@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://blog.cln.co.nz/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'CLN Blog'
 theme = "anatole"
