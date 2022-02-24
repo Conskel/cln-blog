@@ -1,7 +1,7 @@
 baseURL = "https://blog.cln.co.nz"
 languageCode = "en"
 DefaultContentLanguage = "en"
-title = "CLN Blog - Continuous Learning Nonstop"
+title = "Consk's Learning Nonstop"
 
 # theme as hugo module
 #theme = "github.com/lxndrblz/anatole"

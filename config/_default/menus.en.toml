@@ -11,25 +11,19 @@
   url = "/post/"
 
   [[main]]
-  name = "Portfolio"
-  weight = 300
-  identifier = "portfolio"
-  url = "/portfolio/"
-
-  [[main]]
   name = "About"
-  weight = 400
+  weight = 300
   identifier = "about"
   url = "/about/"
 
   [[main]]
   name = "Contact"
-  weight = 500
+  weight = 400
   identifier = "contact"
   url = "/contact/"
 
   [[footer]]
-  name = "imprint"
+  name = "Legal"
   weight = 1
-  identifier = "imprint"
-  url = "/imprint/"
+  identifier = "legal"
+  url = "/legal/"

@@ -1,6 +1,6 @@
 +++
 title = "About"
-description = "About - CLN Blog"
+description = "About - CLN"
 date = "2019-02-28"
 aliases = ["about-us", "about-cln", "contact"]
 author = "King Consk"

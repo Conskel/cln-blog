@@ -1,8 +1,8 @@
 
-title = "CLN Blog"
+title = "CLN"
 author = "King Consk"
 #copyright = "2020-2021"
-description = "Continuous Learning Nonstop - Musings of a systems engineer"
+description = "Consk's Learning Nonstop"
 profilePicture = "images/profile.jpg"
 keywords = ""
 favicon = "favicons/"
@@ -19,9 +19,9 @@ contactFormAction = "https://formspree.io/f/mrgjqvav"
 #googleFonts = ["Indie+Flower", "Roboto:ital,wght@0,100;0,400;0,700;1,400"]
 # Google Site Verify
 #googleSiteVerify = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-singleDateFormat = "2/1/2006"
-indexDateFormat = "2/1/2006"
-listDateFormat = "2/1/2006"
+singleDateFormat = "02 Jan 2006"
+indexDateFormat = "02 Jan 2006"
+listDateFormat = "02 Jan 2006"
 # Commento Comments
 # CommentoURL = "https://commento.example.com/js/commento.js"
 # Read More links for truncated summaries
