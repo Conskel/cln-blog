@@ -6,8 +6,8 @@ aliases = ["about-us", "about-cln", "contact"]
 author = "King Consk"
 +++
 
-Hi!
+Hello!
 
-Every day I try and learn something new. This blog is an outlet for me to share my thoughts and ideas. I'm a systems engineer by trade, so posts are going to be tech focused. 
+Every day I try and learn something new. This blog is an outlet for me to share my thoughts and ideas. I'm a systems engineer by trade, so posts are tech focused. 
 
 King Consk.

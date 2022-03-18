@@ -19,14 +19,17 @@ enableRobotsTXT = true
 #googleAnalytics = "UA-123-45"
 
 # Syntax highlighting
-pygmentsUseClasses = true   
+pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
+pygmentsStyle = "paraiso-dark"
+pygmentsUseClassic = false
 
 [markup]
     [markup.goldmark]
         [markup.goldmark.renderer]
         unsafe=true
+
 
 [taxonomies]
     category = "categories"

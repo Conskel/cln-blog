@@ -1,0 +1,4 @@
+baseURL = 'https://blog.cln.co.nz/'
+languageCode = 'en-us'
+title = "Consk's Blog"
+theme = "anatole"

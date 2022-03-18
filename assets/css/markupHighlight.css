@@ -1,0 +1,466 @@
+:root {
+  /* Light -> monokailight */
+  --chr-def-color: #2f1e2e;
+  --chr-def-bg-color: #e7e9db;
+  --chr-err-color: #ef6155;
+  --chr-err-bg-color: #960050;
+  --chr-hl-bg-color: #ffffcc;
+  --chr-lnt-color: #7f7f7f;
+  --chr-ln-color: #7f7f7f;
+  --chr-k-color: #815ba4;
+  --chr-kc-color: #815ba4;
+  --chr-kd-color: #815ba4;
+  --chr-kn-color: #5bc4bf;
+  --chr-kp-color: #815ba4;
+  --chr-kr-color: #815ba4;
+  --chr-kt-color: #fec418;
+  --chr-na-color: #06b6ef;
+  --chr-bp-color: #111111;
+  --chr-nc-color: #fec418;
+  --chr-no-color: #ef6155;
+  --chr-nd-color: #5bc4bf;
+  --chr-ni-color: #111111;
+  --chr-ne-color: #ef6155;
+  --chr-nf-color: #06b6ef;
+  --chr-fm-color: #111111;
+  --chr-nl-color: #111111;
+  --chr-nx-color: #06b6ef;
+  --chr-py-color: #111111;
+  --chr-nt-color: #5bc4bf;
+  --chr-vc-color: #111111;
+  --chr-vg-color: #111111;
+  --chr-vi-color: #111111;
+  --chr-vm-color: #111111;
+  --chr-l-color: #f99b15;
+  --chr-ld-color: #48b685;
+  --chr-s-color: #48b685;
+  --chr-sa-color: #48b685;
+  --chr-sb-color: #48b685;
+  --chr-sc-color: #48b685;
+  --chr-dl-color: #48b685;
+  --chr-sd-color: #8d8687;
+  --chr-s2-color: #48b685;
+  --chr-se-color: #f99b15;
+  --chr-sh-color: #48b685;
+  --chr-si-color: #f99b15;
+  --chr-sx-color: #48b685;
+  --chr-sr-color: #48b685;
+  --chr-s1-color: #48b685;
+  --chr-ss-color: #48b685;
+  --chr-m-color: #f99b15;
+  --chr-mb-color: #f99b15;
+  --chr-mf-color: #f99b15;
+  --chr-mh-color: #f99b15;
+  --chr-mi-color: #f99b15;
+  --chr-il-color: #f99b15;
+  --chr-mo-color: #f99b15;
+  --chr-o-color: #5bc4bf;
+  --chr-ow-color: #5bc4bf;
+  --chr-p-color: #111111;
+  --chr-c-color: #8d8687;
+  --chr-ch-color: #8d8687;
+  --chr-cm-color: #8d8687;
+  --chr-c1-color: #8d8687;
+  --chr-cs-color: #8d8687;
+  --chr-cp-color: #8d8687;
+  --chr-cpf-color: #8d8687;
+}
+
+body.theme--dark {
+  /* Dark -> monokai */
+  --chr-def-color: #e7e9db;
+  --chr-def-bg-color: #2f1e2e;
+  --chr-err-color: #ef6155;
+  --chr-err-bg-color: #1e0010;
+  --chr-hl-bg-color: #ffffcc;
+  --chr-lnt-color: #7f7f7f;
+  --chr-ln-color: #7f7f7f;
+  --chr-k-color: #815ba4;
+  --chr-kc-color: #815ba4;
+  --chr-kd-color: #815ba4;
+  --chr-kn-color: #5bc4bf;
+  --chr-kp-color: #815ba4;
+  --chr-kr-color: #815ba4;
+  --chr-kt-color: #fec418;
+  --chr-na-color: #06b6ef;
+  --chr-nc-color: #fec418;
+  --chr-no-color: #ef6155;
+  --chr-nd-color: #5bc4bf;
+  --chr-ne-color: #ef6155;
+  --chr-nf-color: #06b6ef;
+  --chr-nx-color: #06b6ef;
+  --chr-nt-color: #5bc4bf;
+  --chr-l-color: #f99b15;
+  --chr-ld-color: #48b685;
+  --chr-s-color: #48b685;
+  --chr-sa-color: #48b685;
+  --chr-sb-color: #48b685;
+  --chr-sc-color: #48b685;
+  --chr-dl-color: #48b685;
+  --chr-sd-color: #776e71;
+  --chr-s2-color: #48b685;
+  --chr-se-color: #f99b15;
+  --chr-sh-color: #48b685;
+  --chr-si-color: #f99b15;
+  --chr-sx-color: #e6db74;
+  --chr-sr-color: #48b685;
+  --chr-s1-color: #48b685;
+  --chr-ss-color: #48b685;
+  --chr-m-color: #f99b15;
+  --chr-mb-color: #f99b15;
+  --chr-mf-color: #f99b15;
+  --chr-mh-color: #f99b15;
+  --chr-mi-color: #f99b15;
+  --chr-il-color: #f99b15;
+  --chr-mo-color: #f99b15;
+  --chr-o-color: #5bc4bf;
+  --chr-ow-color: #5bc4bf;
+  --chr-p-color: #f8f8f2;
+  --chr-c-color: #776e71;
+  --chr-ch-color: #776e71;
+  --chr-cm-color: #776e71;
+  --chr-c1-color: #776e71;
+  --chr-cs-color: #776e71;
+  --chr-cp-color: #776e71;
+  --chr-cpf-color: #776e71;
+  --chr-gd-color: #ef6155;
+  --chr-gi-color: #48b685;
+  --chr-gu-color: #5bc4bf;
+}
+
+/* Background */
+.chroma {
+  direction: ltr;
+  color: var(--chr-def-color);
+  background-color: var(--chr-def-bg-color);
+  border-radius: 15px;
+  padding: 25px;
+}
+/* Other */
+.chroma .x {
+}
+/* Error */
+.chroma .err {
+  color: var(--chr-err-color);
+  background-color: var(--chr-err-bg-color);
+}
+/* LineTableTD */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* LineTable */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: auto;
+  overflow: auto;
+  display: block;
+}
+/* LineHighlight */
+.chroma .hl {
+  display: block;
+  width: 100%;
+  background-color: var(--chr-hl-bg-color);
+}
+/* LineNumbersTable */
+.chroma .lnt {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: var(--chr-lnt-color);
+}
+/* LineNumbers */
+.chroma .ln {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: var(--chr-ln-color);
+}
+/* Keyword */
+.chroma .k {
+  color: var(--chr-k-color);
+}
+/* KeywordConstant */
+.chroma .kc {
+  color: var(--chr-kc-color);
+}
+/* KeywordDeclaration */
+.chroma .kd {
+  color: var(--chr-kd-color);
+}
+/* KeywordNamespace */
+.chroma .kn {
+  color: var(--chr-kn-color);
+}
+/* KeywordPseudo */
+.chroma .kp {
+  color: var(--chr-kp-color);
+}
+/* KeywordReserved */
+.chroma .kr {
+  color: var(--chr-kr-color);
+}
+/* KeywordType */
+.chroma .kt {
+  color: var(--chr-kt-color);
+}
+/* Name */
+.chroma .n {
+  color: var(--chr-n-color);
+}
+/* NameAttribute */
+.chroma .na {
+  color: var(--chr-na-color);
+}
+/* NameBuiltin */
+.chroma .nb {
+  color: var(--chr-nb-color);
+}
+/* NameBuiltinPseudo */
+.chroma .bp {
+  color: var(--chr-bp-color);
+}
+/* NameClass */
+.chroma .nc {
+  color: var(--chr-nc-color);
+}
+/* NameConstant */
+.chroma .no {
+  color: var(--chr-no-color);
+}
+/* NameDecorator */
+.chroma .nd {
+  color: var(--chr-nd-color);
+}
+/* NameEntity */
+.chroma .ni {
+  color: var(--chr-ni-color);
+}
+/* NameException */
+.chroma .ne {
+  color: var(--chr-ne-color);
+}
+/* NameFunction */
+.chroma .nf {
+  color: var(--chr-nf-color);
+}
+/* NameFunctionMagic */
+.chroma .fm {
+  color: var(--chr-fm-color);
+}
+/* NameLabel */
+.chroma .nl {
+  color: var(--chr-nl-color);
+}
+/* NameNamespace */
+.chroma .nn {
+  color: var(--chr-nn-color);
+}
+/* NameOther */
+.chroma .nx {
+  color: var(--chr-nx-color);
+}
+/* NameProperty */
+.chroma .py {
+  color: var(--chr-py-color);
+}
+/* NameTag */
+.chroma .nt {
+  color: var(--chr-nt-color);
+}
+/* NameVariable */
+.chroma .nv {
+  color: var(--chr-nv-color);
+}
+/* NameVariableClass */
+.chroma .vc {
+  color: var(--chr-vc-color);
+}
+/* NameVariableGlobal */
+.chroma .vg {
+  color: var(--chr-vg-color);
+}
+/* NameVariableInstance */
+.chroma .vi {
+  color: var(--chr-vi-color);
+}
+/* NameVariableMagic */
+.chroma .vm {
+  color: var(--chr-vm-color);
+}
+/* Literal */
+.chroma .l {
+  color: var(--chr-l-color);
+}
+/* LiteralDate */
+.chroma .ld {
+  color: var(--chr-ld-color);
+}
+/* LiteralString */
+.chroma .s {
+  color: var(--chr-s-color);
+}
+/* LiteralStringAffix */
+.chroma .sa {
+  color: var(--chr-sa-color);
+}
+/* LiteralStringBacktick */
+.chroma .sb {
+  color: var(--chr-sb-color);
+}
+/* LiteralStringChar */
+.chroma .sc {
+  color: var(--chr-sc-color);
+}
+/* LiteralStringDelimiter */
+.chroma .dl {
+  color: var(--chr-dl-color);
+}
+/* LiteralStringDoc */
+.chroma .sd {
+  color: var(--chr-sd-color);
+}
+/* LiteralStringDouble */
+.chroma .s2 {
+  color: var(--chr-s2-color);
+}
+/* LiteralStringEscape */
+.chroma .se {
+  color: var(--chr-se-color);
+}
+/* LiteralStringHeredoc */
+.chroma .sh {
+  color: var(--chr-sh-color);
+}
+/* LiteralStringInterpol */
+.chroma .si {
+  color: var(--chr-si-color);
+}
+/* LiteralStringOther */
+.chroma .sx {
+  color: var(--chr-sx-color);
+}
+/* LiteralStringRegex */
+.chroma .sr {
+  color: var(--chr-sr-color);
+}
+/* LiteralStringSingle */
+.chroma .s1 {
+  color: var(--chr-s1-color);
+}
+/* LiteralStringSymbol */
+.chroma .ss {
+  color: var(--chr-ss-color);
+}
+/* LiteralNumber */
+.chroma .m {
+  color: var(--chr-m-color);
+}
+/* LiteralNumberBin */
+.chroma .mb {
+  color: var(--chr-mb-color);
+}
+/* LiteralNumberFloat */
+.chroma .mf {
+  color: var(--chr-mf-color);
+}
+/* LiteralNumberHex */
+.chroma .mh {
+  color: var(--chr-mh-color);
+}
+/* LiteralNumberInteger */
+.chroma .mi {
+  color: var(--chr-mi-color);
+}
+/* LiteralNumberIntegerLong */
+.chroma .il {
+  color: var(--chr-il-color);
+}
+/* LiteralNumberOct */
+.chroma .mo {
+  color: var(--chr-mo-color);
+}
+/* Operator */
+.chroma .o {
+  color: var(--chr-o-color);
+}
+/* OperatorWord */
+.chroma .ow {
+  color: var(--chr-ow-color);
+}
+/* Punctuation */
+.chroma .p {
+  color: var(--chr-p-color);
+}
+/* Comment */
+.chroma .c {
+  color: var(--chr-c-color);
+}
+/* CommentHashbang */
+.chroma .ch {
+  color: var(--chr-ch-color);
+}
+/* CommentMultiline */
+.chroma .cm {
+  color: var(--chr-cm-color);
+}
+/* CommentSingle */
+.chroma .c1 {
+  color: var(--chr-c1-color);
+}
+/* CommentSpecial */
+.chroma .cs {
+  color: var(--chr-cs-color);
+}
+/* CommentPreproc */
+.chroma .cp {
+  color: var(--chr-cp-color);
+}
+/* CommentPreprocFile */
+.chroma .cpf {
+  color: var(--chr-cpf-color);
+}
+/* Generic */
+.chroma .g {
+}
+/* GenericDeleted */
+.chroma .gd {
+}
+/* GenericEmph */
+.chroma .ge {
+  font-style: italic;
+}
+/* GenericError */
+.chroma .gr {
+}
+/* GenericHeading */
+.chroma .gh {
+}
+/* GenericInserted */
+.chroma .gi {
+}
+/* GenericOutput */
+.chroma .go {
+}
+/* GenericPrompt */
+.chroma .gp {
+}
+/* GenericStrong */
+.chroma .gs {
+  font-weight: bold;
+}
+/* GenericSubheading */
+.chroma .gu {
+}
+/* GenericTraceback */
+.chroma .gt {
+}
+/* GenericUnderline */
+.chroma .gl {
+}
+/* TextWhitespace */
+.chroma .w {
+}
