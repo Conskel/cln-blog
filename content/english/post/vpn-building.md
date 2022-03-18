@@ -18,11 +18,11 @@ I've been exploring using Headscale to build my own VPN service.
 <!--more-->
 
 ### Overview
-There's a misconception that using a VPN will hide your activity on the Internet. While this is partially true the concern is around what information the VPN provider is collecting and how they [might be storing that information]( https://www.techradar.com/news/this-top-vpn-provider-may-have-leaked-millions-of-user-details).
+There is a misconception that using a VPN will hide your activity on the Internet. Whilst this is partially true, the concern is around what information the VPN provider is collecting and how they [might be storing/using that information](https://www.techradar.com/news/this-top-vpn-provider-may-have-leaked-millions-of-user-details).
 
 It's simple enough to purchase a virtual private server from somewhere and run OpenVPN or Wireguard to host a single VPN server. But what if you wanted to mimic the ease of use that purchasing a third-party VPN provides? What if you wanted to be able to exit in many different countries around the world?
 
-[Tailscale](https://tailscale.com/blog/how-tailscale-works/) is an interesting product that provides a key management layer to Wireguard along with some NAT traversal to allow hosts behind CGNAT to connect to one another. The control component is closed-source and while it has a free tier, you’re still placing trust in a third party. The client component on the other hand is open source. Enter [Headscale]( https://github.com/juanfont/headscale) – an open source project to mimic the functionality of Tailscale server component. 
+[Tailscale](https://tailscale.com/blog/how-tailscale-works/) is an interesting product that provides a key management layer to [Wireguard](https://www.wireguard.com/) along with some NAT traversal to allow hosts behind CGNAT or other firewall restrictions to connect to one another. The control component is closed-source and while it has a free tier, you’re still placing trust in a third party. The client component on the other hand is open source. Enter [Headscale]( https://github.com/juanfont/headscale), an open source project to mimic the functionality of Tailscale server component. 
 
 One of the features of Tailscale is to allow a node on a Tailnet to advertise as an exit point. Nodes can advertise routes and access control policies can restrict which nodes can access what resources. Let's try and advertise a default route `0.0.0.0/0` with an allow all policy. 
 
@@ -36,7 +36,7 @@ Here's a diagram of what's going to be built.
 ![vpn](/images/vpn.jpg)
 
 ### Installation
-Let's install some applications on our Headscale server. We'll use Nginx to act as a reverse proxy so that we can host both the Headscale and DERP server components on a single server. 
+Let's start by installing some applications on our Headscale server. We'll use Nginx to act as a reverse proxy so that we can host both the Headscale and DERP server components on a single server. 
 
 ```bash
 apt update && apt upgrade -y
@@ -105,7 +105,7 @@ unix_socket_permission: "0770"
 EOF
 ```
 
-We'll want to use systemd to manage Headscale as a daemon. 
+We can use systemd to manage Headscale as a daemon. 
 
 ```bash
 cat << EOF >> /etc/systemd/system/headscale.service
@@ -135,7 +135,7 @@ RuntimeDirectory=headscale
 WantedBy=multi-user.target
 EOF
 ```
-Now we'll set up an ACL for who has access to what. We're going to treat namespaces as a user account. The admin account would be able to use SSH on all of the nodes, and the user account will access anything from any server with the tag `prod-exit` as well as be able to browse anywhere using HTTP/S and DNS. We'll also configure our clients to only use our derp server here.
+An ACL can be set up for who has access to what. We can treat namespaces as a user account. The admin account would be able to use SSH on all of the nodes, and the user account will access anything from any server with the tag `prod-exit`, as well as be able to browse anywhere using HTTP/S and DNS. 
 
 ```bash
 cat << EOF >> /etc/headscale/acl.hujson
@@ -184,7 +184,7 @@ EOF
 
 ### DERP Installation & Configuration
 
-To install our DERP server we need to use GOLANG to build it.
+To install our DERP server, we need to use GOLANG to build it.
 
 ```bash
 wget https://go.dev/dl/go1.17.7.linux-amd64.tar.gz
@@ -194,7 +194,7 @@ go install tailscale.com/cmd/derper@main
 mv go/bin/derper /usr/local/bin/
 ```
 
-We'll again use systemd to run it as a daemon using a shell script. 
+Again we can use systemd to run it as a daemon using a shell script. 
 
 ```bash
 cat << EOF >> /etc/systemd/system/derper.service
@@ -230,7 +230,8 @@ chmod +x /usr/local/bin/derper_stop.sh
 ```
 
 ### NGINX Configuration
-Now we can set up NGINX to act as a reverse proxy. 
+Now we can set up NGINX to act as a reverse proxy to our DERP and Headscale daemons. 
+
 ```bash
 cat << EOF >> /etc/nginx/sites-available/headscale.example.com.conf
 server {
@@ -286,7 +287,7 @@ ln -s /etc/nginx/sites-available/headscale.example.com.conf /etc/nginx/sites-ena
 ln -s /etc/nginx/sites-available/derp.example.com.conf /etc/nginx/sites-enabled/derp.example.com.conf
 ```
 
-We'll use certbot to register with Let's Encrypt and generate a certificate. 
+Certbot makes it easy to register with Let's Encrypt and generate a TLS certificate for both our DERP and Headscale domains. 
 
 ```bash
 certbot
@@ -294,8 +295,7 @@ certbot
 ```
 
 ### Run and configure Headscale
-
-We can now load and enable the services we've set up. 
+After a `daemon-reload` we can load and enable the services we've set up. 
 
 ```bash
 systemctl daemon-reload
@@ -311,7 +311,7 @@ headscale namespaces create admin1
 headscale namespaces create user1
 ```
 
-We generate a preauth key for each our namespaces to use to authenticate when we register clients in the Tailnet. By default these will expire after 1 hour.
+Generate a preauth key for each our namespaces to use to authenticate when we register clients in the Tailnet. By default these will expire after 1 hour.
 
 ```bash
 headscale --namespace admin1 preauthkeys create --reusable --expiration 24h
@@ -321,7 +321,7 @@ headscale --namespace user1 preauthkeys create --reusable --expiration 24h
 #BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 ```
 
-Now we can start adding nodes. We'll start with the Headscale server itself as it will need to be a member in order to verify the DERP clients. 
+Finally we can start adding some nodes. We'll start with the Headscale server itself as it will need to be a member in order to verify the DERP clients. 
 
 ```bash
 tailscale up --login-server https://headscale.example.com --authkey AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA --advertise-tags 'tag:prod-controller'
@@ -338,7 +338,7 @@ sysctl -p /etc/sysctl.conf
 tailscale up --login-server https://headscale.example.com --authkey AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA --advertise-tags 'tag:prod-exit' --advertise-routes '0.0.0.0/0,::/0' --advertise-exit-node=true
 ```
 
-Now we need to authorise the node to be able to advertise itself as an exit and advertise its' routes. We first identify the node's ID.
+The node then needs to be authorised to be able to advertise itself as an exit as well as advertise its' routes. We first identify the node's ID number.
 
 ```bash
 headscale nodes list
@@ -347,27 +347,27 @@ headscale routes enable --identifier 2 --route '0.0.0.0/0,::/0'
 ```
 
 ### Client Setup
-Now we've got an exit node we can configure our client to use the Tailnet. After installing the [Windows package](https://tailscale.com/download/windows), we set two registry keys to use our custom Headscale server.
+Now that we've got an exit node, we can configure a client connect to the Tailnet. After installing the [Windows package](https://tailscale.com/download/windows), we set two registry keys to use our custom Headscale server.
 
 ```
 HKLM:\SOFTWARE\Tailscale IPN\UnattendedMode=always
 HKLM:\SOFTWARE\Tailscale IPN\LoginURL=https://headscale.example.com
 ```
 
-We then load tailscale and it will prompt to login. This will then load a webpage, because we're using Headscale behind a proxy the URL will be incorrect and set to the localhost `127.0.0.1:8080`. Change the first part of this to your headscale URL and you'll get instructions on how to enrol the client. This will include a generated client key.   
+After loading up tailscale, it will prompt to login which will then load a webpage. Because we're using Headscale behind a proxy the URL will be incorrect and set to the localhost `127.0.0.1:8080`. Change the first part of this to your headscale URL and you'll get instructions on how to enrol the client. This will include a generated client key.   
 
 ```bash
 headscale -n user1 nodes register --key CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 ```
 
-Back in the windows client if we select our exit node, we can then start routing all traffic through it. We can then confirm that we're showing a different IP and country.
+Back in the windows client if we select our exit node, we can then start routing all traffic through it. Confirm that you're showing a different IP and country from your client machine.
 
 ```bash
 curl ifconfig.io
 curl ifconfig.io/country_code
 ```
 
-If this were a Linux client, we'd simply enrol the client in the tail net similar to before then re-run the Tailscale client and use the `--exit-node` option.
+If this were a Linux client, we'd simply enrol the client in the Tailnet similar to before then re-run the Tailscale client and use the `--exit-node` option.
 
 ```bash
 tailscale status
@@ -377,3 +377,5 @@ tailscale up --exit-node=<exit node IP>
 ### Conclusion
 
 Adding more exits is now trivial as we simply just create an auth key, enable forwarding and enrol the node in the Tailnet. We don't even need to have a node that's exposed to the Internet as long as it can reach the Headscale server. In my example I used Azure with peered vnet between different regions. I then just used the Headscale server as a bastion host to configure the exit server. However if you built a custom image or used an cloud init script you could build the exit node anywhere. 
+
+Further work could be done to integrate Headscale with an authentication provider such as LDAP along with some fine tuned ACLs. 
