@@ -1,3 +1,4 @@
+---
 baseURL: "https://blog.cln.co.nz"
 title: Consk's Learning Nonstop
 paginate: 5
@@ -8,51 +9,48 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableEmoji: true
-pygmentsUseClasses: true
-#googleAnalytics: UA-123-45
+# googleAnalytics: UA-123-45
 
 minify:
   disableXML: true
-  #minifyOutput: true
+  # minifyOutput: true
 
 languages:
-    en:
-        languageName: "English"
-        weight: 1
-        menu:
-            main:
-                - name: Archive
-                  url: archives
-                  weight: 5
-                - name: Search
-                  url: search/
-                  weight: 10
-                - name: Tags
-                  url: tags/
-                  weight: 10
-                - name: Categories
-                  url: categories/
-                  weight: 10
+  en:
+    languageName: "English"
+    weight: 1
+    menu:
+      main:
+        - name: Archive
+          url: archives
+          weight: 5
+        - name: Search
+          url: search/
+          weight: 10
+        - name: Tags
+          url: tags/
+          weight: 10
+        - name: Categories
+          url: categories/
+          weight: 10
 
 outputs:
-    home:
-        - HTML
-        - RSS
-        - JSON 
-        
+  home:
+    - HTML
+    - RSS
+    - JSON
+
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  env: production
   title: CLN
   description: "Consk's Learning Nonstop"
-  keywords: [Blog, Technology, Infrastructure, Systems Engineering, Network Engineering]
+  keywords: [Blog, Technology, Infrastructure, Systems, Network, Engineering]
   author: King Consk
   images: ["images/profile.jpg"]
   DateFormat: "02 Jan 2006"
-  defaultTheme: auto # dark, light
+  defaultTheme: auto
   disableThemeToggle: false
   hideFooter: true
-  cover:
-      linkFullImages: true
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
@@ -67,14 +65,13 @@ params:
   tocopen: false
 
   assets:
-    # disableHLJS: true # to disable highlight.js
+    disableHLJS: false # to disable highlight.js
     # disableFingerprinting: true
     favicon: "favicons/favicon.ico"
     favicon16x16: "favicons/favicon-16x16.png"
     favicon32x32: "favicons/favicon-32x32.png"
     apple_touch_icon: "favicons/apple-touch-icon.png"
-    #safari_pinned_tab: "favicons/"
-    
+    # safari_pinned_tab: "favicons/"
 
   label:
     text: "Home"
@@ -83,7 +80,7 @@ params:
 
   # profile-mode
   profileMode:
-    enabled: true # needs to be explicitly set
+    enabled: true
     title: CLN
     subtitle: "Consk's Learning Nonstop"
     imageUrl: "images/profile.jpg"
@@ -107,23 +104,20 @@ params:
     - name: github
       url: "https://github.com/Conskel/"
 
-#  analytics:
-#    google:
-#      SiteVerificationTag: "XYZabc"
-#    bing:
-#      SiteVerificationTag: "XYZabc"
-#    yandex:
-#      SiteVerificationTag: "XYZabc"
+  analytics:
+    google:
+      SiteVerificationTag: "google-site-verification=X1dP0D3QEG07qGhZc-5fhUOO36m9bNPFj3X-c6oe-ko"
 
   cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
+    linkFullImages: true
+    hidden: true
+    hiddenInList: true
+    hiddenInSingle: true
 
   editPost:
     URL: "https://github.com/Conskel/cln-blog/tree/main/content/posts"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 
   # for search
   # https://fusejs.io/api/options.html
@@ -137,21 +131,18 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 
 taxonomies:
-    category: categories
-    tag: tags
-    series: series
+  category: categories
+  tag: tags
+  series: series
 
+pygmentsUseClasses: true
 markup:
-    goldmark:
-        renderer:
-            unsafe: true
-
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-#pygmentsUseClasses: true
-#markup:
-#    highlight:
-#         # anchorLineNos: true
-#        codeFences: true
-#        guessSyntax: true
-#        lineNos: true
-#        style: monokai
+  highlight:
+    # anchorLineNos: true
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    style: monokai
+  goldmark:
+    renderer:
+      unsafe: true
