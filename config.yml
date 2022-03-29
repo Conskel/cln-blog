@@ -33,6 +33,9 @@ languages:
         - name: Categories
           url: categories/
           weight: 10
+        - name: Contact
+          url: contact/
+          weight: 15
 
 outputs:
   home:
@@ -55,7 +58,7 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   disableSpecial1stPost: false
   disableScrollToTop: false
   comments: false
@@ -63,6 +66,7 @@ params:
   hideSummary: false
   showtoc: true
   tocopen: false
+  contactFormAction: "https://formspree.io/f/mrgjqvav"
 
   assets:
     disableHLJS: false # to disable highlight.js
