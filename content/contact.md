@@ -8,4 +8,4 @@ hidemeta: true
 
 Need something answered?
 
-{{< include-html "contact.html" >}}
+{{< include-html "posts/contact.html" >}}
