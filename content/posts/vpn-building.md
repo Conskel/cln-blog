@@ -375,4 +375,17 @@ tailscale up --exit-node=<exit node IP>
 
 Adding more exits is now trivial as we simply just create an auth key, enable forwarding and enrol the node in the Tailnet. We don't even need to have a node that's exposed to the Internet as long as it can reach the Headscale server. In my example I used Azure with peered vnet between different regions. I then just used the Headscale server as a bastion host to configure the exit server. However if you built a custom image or used an cloud init script you could build the exit node anywhere. 
 
+```yaml
+#cloud-config
+runcmd:
+  - 'echo "net.ipv4.ip_forward = 1" | tee -a /etc/sysctl.conf'
+  - 'echo "net.ipv6.conf.all.forwarding = 1" | tee -a /etc/sysctl.conf'
+  - 'sysctl -p /etc/sysctl.conf'
+  - 'curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | apt-key add -'
+  - 'curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.list | tee /etc/apt/sources.list.d/tailscale.list'
+  - 'apt-get update'
+  - 'apt-get install tailscale -y'
+  - 'tailscale up --login-server https://headscale.example.com --authkey AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA --advertise-tags "tag:prod-exit" --advertise-routes "0.0.0.0/0,::/0" --advertise-exit-node=true'
+```
+
 Further work could be done to integrate Headscale with an authentication provider such as LDAP along with some fine tuned ACLs. 
