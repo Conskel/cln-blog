@@ -1,17 +1,20 @@
-+++
-author = "King Consk"
-title = "Building a VPN Service"
-date = "2022-03-17"
-description = "Create your own VPN service using Headscale."
-thumbnail = "images/vpn_thumb.jpg"
-tags = [
-    "VPN",
-    "Headscale",
-    "Tailscale",
-]
-draft = false
-toc = true
-+++
+---
+author: "King Consk"
+title: "Building a VPN Service"
+date: "2022-03-17"
+description: "Create your own VPN service using Headscale."
+thumbnail: "images/vpn_thumb.jpg"
+tags: ["VPN", "Headscale", "Tailscale"]
+categories: ["howto"]
+draft: false
+ShowToc: true
+disableHLJS: false
+cover:
+    image: "images/vpn_thumb.jpg"
+    alt: "vpn"
+    caption: "vpn"
+    relative: true # To use relative path for cover image, used in hugo Page-bundles
+---
 
 I've been exploring using Headscale to build my own VPN service.
 

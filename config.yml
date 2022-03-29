@@ -1,0 +1,157 @@
+baseURL: "https://blog.cln.co.nz"
+title: Consk's Learning Nonstop
+paginate: 5
+theme: PaperMod
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+#googleAnalytics: UA-123-45
+
+minify:
+  disableXML: true
+  #minifyOutput: true
+
+languages:
+    en:
+        languageName: "English"
+        weight: 1
+        menu:
+            main:
+                - name: Archive
+                  url: archives
+                  weight: 5
+                - name: Search
+                  url: search/
+                  weight: 10
+                - name: Tags
+                  url: tags/
+                  weight: 10
+                - name: Categories
+                  url: categories/
+                  weight: 10
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON 
+        
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: CLN
+  description: "Consk's Learning Nonstop"
+  keywords: [Blog, Technology, Infrastructure, Systems Engineering, Network Engineering]
+  author: King Consk
+  images: ["images/profile.jpg"]
+  DateFormat: "02 Jan 2006"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+  hideFooter: true
+  cover:
+      linkFullImages: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "favicons/favicon.ico"
+    favicon16x16: "favicons/favicon-16x16.png"
+    favicon32x32: "favicons/favicon-32x32.png"
+    apple_touch_icon: "favicons/apple-touch-icon.png"
+    #safari_pinned_tab: "favicons/"
+    
+
+  label:
+    text: "Home"
+    icon: favicons/apple-touch-icon.png
+    iconHeight: 35
+
+  # profile-mode
+  profileMode:
+    enabled: true # needs to be explicitly set
+    title: CLN
+    subtitle: "Consk's Learning Nonstop"
+    imageUrl: "images/profile.jpg"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: King Consk
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+
+  # home-info mode
+  homeInfoParams:
+    Title: "Hi there \U0001F44B"
+    Content: Welcome to my blog
+
+  socialIcons:
+    - name: email
+      url: "https://blog.cln.co.nz/contact"
+    - name: github
+      url: "https://github.com/Conskel/"
+
+#  analytics:
+#    google:
+#      SiteVerificationTag: "XYZabc"
+#    bing:
+#      SiteVerificationTag: "XYZabc"
+#    yandex:
+#      SiteVerificationTag: "XYZabc"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+  editPost:
+    URL: "https://github.com/Conskel/cln-blog/tree/main/content/posts"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+#pygmentsUseClasses: true
+#markup:
+#    highlight:
+#         # anchorLineNos: true
+#        codeFences: true
+#        guessSyntax: true
+#        lineNos: true
+#        style: monokai
