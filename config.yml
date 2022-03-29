@@ -110,7 +110,7 @@ params:
 
   analytics:
     google:
-      SiteVerificationTag: "google-site-verification=X1dP0D3QEG07qGhZc-5fhUOO36m9bNPFj3X-c6oe-ko"
+      SiteVerificationTag: "G-EBMHJVDT9J"
 
   cover:
     linkFullImages: true
